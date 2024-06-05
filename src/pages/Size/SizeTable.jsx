@@ -26,6 +26,7 @@ const SizeTable = () => {
 
     if (res && res.message) {
       toast.success(res.message);
+      getAllSizes();
     } else {
       toast.error("Error deleting a size!");
     }

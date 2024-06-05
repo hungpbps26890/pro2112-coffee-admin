@@ -29,6 +29,7 @@ const ToppingTable = () => {
 
     if (res && res.message) {
       toast.success(res.message);
+      getAllToppings();
     } else {
       toast.error("Error deleting a topping!");
     }

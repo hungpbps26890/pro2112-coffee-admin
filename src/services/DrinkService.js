@@ -17,5 +17,5 @@ export const putUpdateDrink = (id, data) => {
 };
 
 export const deleteDrinkById = (id) => {
-  return axios.delete(`/api/drinks/delete/${id}`);
+  return axios.delete(`/api/drinks/${id}`);
 };
