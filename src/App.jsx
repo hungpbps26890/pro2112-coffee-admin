@@ -14,6 +14,11 @@ import ToppingTable from "./pages/Topping/ToppingTable";
 import ToppingForm from "./pages/Topping/ToppingForm";
 import SizeTable from "./pages/Size/SizeTable";
 import SizeForm from "./pages/Size/SizeForm";
+import OrderTable from "./pages/Order/OrderTable";
+import OrderDetails from "./pages/Order/OrderDetails";
+import OrderForm from "./pages/Order/OrderForm";
+import UserTable from "./pages/User/UserTable";
+import UserForm from "./pages/User/UserForm";
 
 const App = () => {
   return (
@@ -62,6 +67,19 @@ const App = () => {
               <Route path="/admin/sizes" element={<SizeTable />}></Route>
               <Route path="/admin/sizes/add" element={<SizeForm />}></Route>
               <Route path="/admin/edit-size/:id" element={<SizeForm />}></Route>
+
+              <Route path="/admin/orders" element={<OrderTable />}></Route>
+              <Route
+                path="/admin/order-details/:id"
+                element={<OrderDetails />}
+              ></Route>
+              <Route
+                path="/admin/edit-order/:id"
+                element={<OrderForm />}
+              ></Route>
+
+              <Route path="/admin/users" element={<UserTable />}></Route>
+              <Route path="/admin/edit-user/:id" element={<UserForm />}></Route>
             </Routes>
 
             {/* Footer */}
