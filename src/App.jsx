@@ -19,6 +19,9 @@ import OrderDetails from "./pages/Order/OrderDetails";
 import OrderForm from "./pages/Order/OrderForm";
 import UserTable from "./pages/User/UserTable";
 import UserForm from "./pages/User/UserForm";
+import FormikContainer from "./components/FormikContainer/FormikContainer";
+import DrinkTableAnt from "./pages/Drink/DrinkTableAnt";
+import OrderTableAnt from "./pages/Order/OrderTableAnt";
 
 const App = () => {
   return (
@@ -80,6 +83,16 @@ const App = () => {
 
               <Route path="/admin/users" element={<UserTable />}></Route>
               <Route path="/admin/edit-user/:id" element={<UserForm />}></Route>
+
+              <Route path="/admin/form" element={<FormikContainer />}></Route>
+              <Route
+                path="/admin/table/drinks"
+                element={<DrinkTableAnt />}
+              ></Route>
+              <Route
+                path="/admin/table/orders"
+                element={<OrderTableAnt />}
+              ></Route>
             </Routes>
 
             {/* Footer */}
