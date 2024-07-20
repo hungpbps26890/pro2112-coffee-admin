@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { NumericFormat } from "react-number-format";
 
 import {
   deleteDrinkById,
@@ -93,7 +94,14 @@ const DrinkTable = () => {
                 <tr key={`drink-${index}`}>
                   <th>{index + 1}</th>
                   <td>{drink.name}</td>
-                  <td>{drink.price}</td>
+                  <td>
+                    <NumericFormat
+                      value={drink.price}
+                      displayType="text"
+                      thousandSeparator=","
+                      suffix=" đ"
+                    />
+                  </td>
                   <td>{drink.category.name}</td>
                   <td>
                     <div

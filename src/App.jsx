@@ -22,6 +22,9 @@ import UserForm from "./pages/User/UserForm";
 import FormikContainer from "./components/FormikContainer/FormikContainer";
 import DrinkTableAnt from "./pages/Drink/DrinkTableAnt";
 import OrderTableAnt from "./pages/Order/OrderTableAnt";
+import TableWithPagination from "./pages/AntDesignTutorial/TableWithPagination";
+import ChartJS from "./pages/ChartJSTutorial/ChartJS";
+import UserTableAnt from "./pages/User/UserTableAnt";
 
 const App = () => {
   return (
@@ -84,6 +87,7 @@ const App = () => {
               <Route path="/admin/users" element={<UserTable />}></Route>
               <Route path="/admin/edit-user/:id" element={<UserForm />}></Route>
 
+              {/* Tutorial Route */}
               <Route path="/admin/form" element={<FormikContainer />}></Route>
               <Route
                 path="/admin/table/drinks"
@@ -93,6 +97,15 @@ const App = () => {
                 path="/admin/table/orders"
                 element={<OrderTableAnt />}
               ></Route>
+              <Route
+                path="/admin/table/users"
+                element={<UserTableAnt />}
+              ></Route>
+              <Route
+                path="/admin/table/antd-pagination"
+                element={<TableWithPagination />}
+              ></Route>
+              <Route path="/admin/chart/chartjs" element={<ChartJS />}></Route>
             </Routes>
 
             {/* Footer */}
