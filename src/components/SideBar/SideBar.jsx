@@ -1,36 +1,36 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext";
+import { postLogout } from "../../services/AuthService";
 
 const SideBar = () => {
+  const { token, setToken } = useContext(StoreContext);
+
+  const navigator = useNavigate();
+
+  const handleLogout = async () => {
+    const res = await postLogout({ token });
+
+    if (res) {
+      localStorage.removeItem("token");
+      setToken("");
+      navigator("/admin/login");
+    }
+  };
+
   return (
     <div className="templatemo-sidebar">
       <header className="templatemo-site-header">
-        <div className="square"></div>
-        <h1>Visual Admin</h1>
+        <h2 style={{ color: "white" }}>May Coffee Admin</h2>
       </header>
 
-      <form className="templatemo-search-form" role="search">
-        <div className="input-group">
-          <button type="submit" className="fa fa-search"></button>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search"
-            name="srch-term"
-            id="srch-term"
-          />
-        </div>
-      </form>
       <div className="mobile-menu-icon">
         <i className="fa fa-bars"></i>
       </div>
       <nav className="templatemo-left-nav">
         <ul>
           <li>
-            <NavLink
-              to={"/admin/chart/chartjs"}
-              style={{ textDecoration: "none" }}
-            >
+            <NavLink to={"/admin/dashboard"} style={{ textDecoration: "none" }}>
               <i className="fa fa-home fa-fw"></i>Dashboard
             </NavLink>
           </li>
@@ -40,6 +40,14 @@ const SideBar = () => {
               style={{ textDecoration: "none" }}
             >
               <i className="fa fa-table"></i>Manage Order
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/admin/staff/order"}
+              style={{ textDecoration: "none" }}
+            >
+              <i className="fa fa-table"></i>Order By Staff
             </NavLink>
           </li>
           <li>
@@ -74,7 +82,7 @@ const SideBar = () => {
             </NavLink>
           </li>
           <li>
-            <a href="login.html">
+            <a onClick={handleLogout}>
               <i className="fa fa-eject fa-fw"></i>Sign Out
             </a>
           </li>
